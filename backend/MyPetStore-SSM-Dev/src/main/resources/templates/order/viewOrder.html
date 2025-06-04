@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:replace="common/top"></header>
+
+<div id="BackLink">
+    <a th:href="@{/catalog/returnMain}">Return to Main Menu</a>
+</div>
+<script src="../js/adjustTopPosition.js"></script>
+
+<div id="Catalog">
+    <form id="confirmOrderForm">
+        <table>
+            <tr>
+                <td colspan="4" id="successInfo">
+                    <p>Thank you, your order has been submitted.</p>
+                </td>
+            </tr>
+            <tr>
+                <th align="center" colspan="4">
+                    Order #<span th:text="${order?.orderId}"></span>
+                    <span th:text="${#dates.format(order?.orderDate, 'yyyy/MM/dd HH:mm:ss')}"></span>
+                </th>
+            </tr>
+
+            <tr>
+                <th colspan="4">Payment Details</th>
+            </tr>
+            <tr>
+                <th colspan="2">Card Type:</th>
+                <td colspan="2" th:text="${order?.cardType}"></td>
+            </tr>
+            <tr>
+                <th colspan="2">Card Number:</th>
+                <td colspan="2" th:text="${order?.creditCard}"></td>
+            </tr>
+            <tr>
+                <th colspan="2">Expiry Date (MM/YYYY):</th>
+                <td colspan="2" th:text="${order?.expiryDate}"></td>
+            </tr>
+
+            <tr>
+                <th colspan="4">Billing Address</th>
+            </tr>
+            <tr>
+                <th>First name:</th>
+                <td th:text="${order?.billToFirstName ?: ''}"></td>
+                <th>City:</th>
+                <td th:text="${order?.billCity ?: ''}"></td>
+            </tr>
+            <tr>
+                <th>Last name:</th>
+                <td th:text="${order?.billToLastName ?: ''}"></td>
+                <th>State:</th>
+                <td th:text="${order?.billState ?: ''}"></td>
+            </tr>
+            <tr>
+                <th>Address 1:</th>
+                <td th:text="${order?.billAddress1 ?: ''}"></td>
+                <th>Zip:</th>
+                <td th:text="${order?.billZip ?: ''}"></td>
+            </tr>
+            <tr>
+                <th>Address 2:</th>
+                <td th:text="${order?.billAddress2 ?: ''}"></td>
+                <th>Country:</th>
+                <td th:text="${order?.billCountry ?: ''}"></td>
+            </tr>
+
+            <tr>
+                <th colspan="4">Shipping Address</th>
+            </tr>
+            <tr>
+                <th>First name:</th>
+                <td th:text="${order?.shipToFirstName ?: ''}"></td>
+                <th>City:</th>
+                <td th:text="${order?.shipCity ?: ''}"></td>
+            </tr>
+            <tr>
+                <th>Last name:</th>
+                <td th:text="${order?.shipToLastName ?: ''}"></td>
+                <th>State:</th>
+                <td th:text="${order?.shipState ?: ''}"></td>
+            </tr>
+            <tr>
+                <th>Address 1:</th>
+                <td th:text="${order?.shipAddress1 ?: ''}"></td>
+                <th>Zip:</th>
+                <td th:text="${order?.shipZip ?: ''}"></td>
+            </tr>
+            <tr>
+                <th>Address 2:</th>
+                <td th:text="${order?.shipAddress2 ?: ''}"></td>
+                <th>Country:</th>
+                <td th:text="${order?.shipCountry ?: ''}"></td>
+            </tr>
+
+            <tr>
+                <th>Courier:</th>
+                <td th:text="${order?.courier ?: ''}"></td>
+                <th>Status:</th>
+                <td th:text="${order?.status ?: ''}"></td>
+            </tr>
+
+            <tr>
+                <th colspan="4">Purchased Items</th>
+            </tr>
+            <tr>
+                <th>Item ID</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+
+            <tr th:each="lineItem : ${order?.lineItems}">
+                <td>
+                    <a th:href="@{/catalog/viewItem}" th:text="${lineItem.item?.itemId}"></a>
+                </td>
+                <td>
+                    <span th:if="${lineItem.item != null}">
+                        <span th:text="${lineItem.item.attribute1}"></span>
+                        <span th:text="${lineItem.item.attribute2}"></span>
+                        <span th:text="${lineItem.item.attribute3}"></span>
+                        <span th:text="${lineItem.item.attribute4}"></span>
+                        <span th:text="${lineItem.item.attribute5}"></span>
+                        <span th:text="${lineItem.item.product?.name}"></span>
+                    </span>
+                    <span th:unless="${lineItem.item != null}">
+                        <i>{description unavailable}</i>
+                    </span>
+                </td>
+                <td style="text-align: center" th:text="${lineItem.quantity}"></td>
+                <td style="text-align: center" th:text="${#numbers.formatDecimal(lineItem.unitPrice, 1, 2)}"></td>
+            </tr>
+
+            <tr>
+                <th colspan="4">
+                    Total: <span th:text="${#numbers.formatDecimal(order?.totalPrice, 1, 2)}"></span>
+                </th>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<footer th:replace="common/bottom"></footer>
+</body>
+</html>

@@ -1,0 +1,1135 @@
+#Content
+{
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    top: 20%;
+}
+
+#Welcome
+{
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 15px;
+    position: absolute;
+    top: 100px;
+    left: 20%;
+}
+
+#Main
+{
+    margin: 0;
+    padding: 1ex;
+    color: #333;
+    background-color: #FFF;
+    border-width: 1ex 0ex 2ex 0px;
+    border-style: solid;
+    border-color: #fff;
+}
+
+#Main #MainImage
+{
+    background:inherit;
+    text-align:center;
+    width: 50%;
+    z-index: 3;
+    position: absolute;
+    left: 60%;
+    top: 10%;
+    transform: translateX(-50%);
+}
+
+#Main #MainImage .info
+{
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    display: none; /* 默认不显示 */
+    /*width: 180px;*/
+    width: 0;
+    height: 0;
+    transform-origin: top left;
+    z-index: 100;
+}
+
+#Main #MainImage .info .Auto
+{
+    list-style: none;
+    height: 20px;
+    line-height: 20px;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 8px;
+    margin-top: 3px;
+    border-bottom: 1px solid #666;
+    color: #005e21;
+    cursor: pointer;
+    opacity: 0;
+}
+
+#Main #Sidebar
+{
+    margin-left: 200px;
+    position: absolute;
+    left: 15%;
+    top: 10%;
+    z-index: 4;
+}
+
+#Main #Sidebar #SidebarContent
+{
+    list-style: none;
+    background-color: white;
+}
+
+#Main #Sidebar #SidebarContent li
+{
+    text-align: left;
+    vertical-align: center;
+    height: 45px;
+    width: 280px;
+    line-height: 45px;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 10px;
+    border: white 3px solid;
+    border-radius: 10px;
+    background-color: #DBDBDB;
+    z-index: 4;
+    transition-duration: 0.5s;
+}
+
+#Main #Sidebar #SidebarContent li span
+{
+    font-weight: normal;
+    font-size: 14px;
+    position: relative;
+    top: -2px;
+}
+
+#Main #Sidebar #SidebarContent li a
+{
+    text-decoration: none;
+    color: black;
+}
+
+#Main #Sidebar #SidebarContent li:hover
+{
+    background-color: #626262;
+    color: white;
+    cursor: pointer;
+    height: 55px;
+    line-height: 55px;
+    transition-duration: 0.5s;
+}
+
+#Main #Sidebar #SidebarContent li p:hover, #Main #Sidebar #SidebarContent li[id="suggestion"] p:hover
+{
+    color: white;
+}
+
+#Main #Sidebar #SidebarContent li[id="suggestion"]
+{
+    background-color: #D5E3CF;
+    height: 75px;
+    line-height: 37px;
+    transition-duration: 0.5s;
+}
+
+#Main #Sidebar #SidebarContent li[id="suggestion"]:hover
+{
+    background-color: #9AAF93;
+    height: 85px;
+    line-height: 42px;
+    transition-duration: 0.5s;
+}
+
+#Catalog
+{
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+}
+
+#Catalog th, td
+{
+    white-space: nowrap;
+}
+
+#Catalog #signOnForm #signOnTitle
+{
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+#Catalog #signOnForm #formContent
+{
+    position: absolute;
+    left: 50%;
+    top: 70px;
+    transform: translateX(-50%);
+}
+
+#Catalog #signOnForm p
+{
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 25px;
+}
+
+#Catalog #signOnForm p span
+{
+    padding-left: 10px;
+    position: relative;
+    top: -8px;
+}
+
+#Catalog #signOnForm #formContent input
+{
+    width: 300px;
+    background-color: #EDEDED;
+    height: 50px;
+    border-radius: 8px;
+    border: none;
+    color: #A6A6A6;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 16px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+#Catalog #signOnForm #formContent select
+{
+    width: 300px;
+    background-color: #EDEDED;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    color: #A6A6A6;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 16px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+#Catalog #signOnForm #formContent textarea
+{
+    width: 300px;
+    background-color: #EDEDED;
+    height: 100px;
+    border-radius: 8px;
+    border: none;
+    color: #A6A6A6;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 16px;
+    text-align: left;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+#Catalog #signOnForm #formContent input[type="file"]
+{
+    width: 300px;
+    background-color: white;
+    height: 50px;
+    border-radius: 8px;
+    border: none;
+    color: #A6A6A6;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 16px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+#Catalog #signOnForm #formContent #captchaInput
+{
+    width: 170px;
+}
+
+#Catalog #signOnForm #formContent img
+{
+    position: relative;
+    top: 8px;
+}
+
+#Catalog #signOnForm #formContent #submit
+{
+    width: 320px;
+    background-color: #AACC9A;
+    color: white;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#Catalog #signOnForm #formContent #submit:hover
+{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#Catalog #signOnForm #formContent #needAnAccount
+{
+    position: relative;
+    top: -8px;
+}
+
+#Catalog #signOnForm #formContent #needAnAccount a
+{
+    text-decoration: none;
+    color: #AACC9A;
+    padding-left: 10px;
+}
+
+#Catalog #signOnForm #formContent #forgetPassword
+{
+     text-decoration: none;
+     color: #5B9BD5;
+     margin-top: 10px;
+}
+
+#Catalog #signOnForm #formContent #needAnAccount a:hover,
+#Catalog #signOnForm #formContent #forgetPassword:hover
+{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#Catalog #registerForm
+{
+    position: relative;
+    top: -30px;
+}
+
+#Catalog #registerForm h3
+{
+    text-align: center;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 35px;
+}
+
+#Catalog #registerForm table
+{
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Catalog #registerForm table tr
+{
+    height: 35px;
+}
+
+#Catalog #registerForm #table1 th
+{
+    width: 150px;
+    text-align: right;
+    font-weight: normal;
+    padding-right: 10px;
+}
+
+#Catalog #registerForm #table2 th
+{
+    width: 100px;
+    text-align: right;
+    font-weight: normal;
+    padding-right: 10px;
+}
+
+#Catalog #registerForm #table3 th
+{
+    width: 180px;
+    text-align: right;
+    font-weight: normal;
+    padding-right: 10px;
+}
+
+#Catalog #registerForm #table1 input,#table2 input
+{
+    width: 250px;
+    background-color: #EDEDED;
+    color: #A6A6A6;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
+}
+
+#Catalog #registerForm #table3 select
+{
+    width: 120px;
+    background-color: #EDEDED;
+    color: #A6A6A6;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
+}
+
+#Catalog #registerForm #save
+{
+    line-height: 35px;
+}
+
+#Catalog #registerForm #save p
+{
+    text-align: center;
+}
+
+#Catalog #registerForm #save img
+{
+    position: relative;
+    top: 8px;
+}
+
+#Catalog #registerForm #save input[type="text"]
+{
+    width: 160px;
+    background-color: #EDEDED;
+    color: #A6A6A6;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
+}
+
+#Catalog #registerForm #save #saveButton, #Catalog #registerForm #save #listOrderButton,
+#Catalog #registerForm #save #listJournalsButton
+{
+    width: 250px;
+    height: 30px;
+    background-color: #AACC9A;
+    color: white;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+}
+
+#Catalog #registerForm #save #listOrderButton
+{
+    width: 120px;
+    background-color: #FFD966;
+}
+
+#Catalog #registerForm #save #listJournalsButton
+{
+    width: 120px;
+    background-color: #BDD7EE;
+}
+
+#Catalog #registerForm #save #saveButton:hover, #Catalog #registerForm #save #listOrderButton:hover,
+#Catalog #registerForm #save #listJournalsButton:hover
+{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#Catalog #registerForm #usernameFeedback, #Catalog #registerForm #passwordFeedback,
+#Catalog #registerForm #repeatPasswordFeedback, #Catalog #registerForm #emailFeedback
+{
+    color: #C00000;
+    line-height: 35px;
+    position: absolute;
+}
+
+#Catalog h2
+{
+    text-align: center;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+}
+
+#Catalog table[class="show"]
+{
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    margin-left: auto;
+    margin-right: auto;
+    position:relative;
+    top: 20px;
+}
+
+#Catalog table[class="show"] tr
+{
+    height: 45px;
+}
+
+#Catalog table[class="show"] th, td
+{
+    text-align: center;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+#Catalog table[class="show"] thead
+{
+    background-color: #AACC9A;
+    color: white;
+    font-weight: bold;
+}
+
+#Catalog table[class="show"] tbody tr:nth-child(odd)
+{
+    background-color: #D5E3CF;
+}
+
+#Catalog table[class="show"] tbody tr:nth-child(even)
+{
+    background-color: #EBF1E9;
+}
+
+#Catalog table[class="show"] a
+{
+    text-decoration: none;
+    color: #94B286;
+    font-weight: bold;
+}
+
+#Catalog table[class="show"] a:hover
+{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#Catalog table[class="show"] #productImage
+{
+    background-color: white;
+}
+
+#Catalog table[class="show"] #productImage td
+{
+    text-align: center;
+    padding-top: 20px;
+}
+
+#Catalog table[class="show"] #productImage span
+{
+    font-family: Georgia, serif, "Microsoft Yahei";
+    font-size: 18px;
+    position: relative;
+    top: -60px;
+}
+
+#Catalog table[class="show"] .status-p
+{
+    color: #FFC000;
+}
+.status-w
+{
+    color: #ED7D31;
+}
+#Catalog table[class="show"] .status-n
+{
+    color: #5B9BD5;
+}
+#Catalog table[class="show"] .status-f
+{
+    color: #70AD47;
+}
+
+#background
+{
+    position: absolute;
+    top: 130px;
+    left: 1150px;
+    height: 450px;
+}
+
+#Catalog #CartAndMyList
+{
+    position: relative;
+    top: -30px;
+}
+
+#Catalog #Cart table[class="show"] tr input[type="text"]
+{
+    width: 150px;
+    height: 25px;
+    background-color: white;
+    padding-left: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+#Catalog #Cart table[class="show"] tr[id="cartButton"]
+{
+    background-color: white;
+    height: 80px;
+    text-align: center;
+}
+
+#Catalog #Cart table[class="show"] tr[id="cartButton"] input, #Catalog #Cart table[class="show"] tr[id="cartButton"] .Button input[type="button"]
+{
+    width: 300px;
+    height: 45px;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#Catalog #Cart table[class="show"] tr[id="cartButton"] input
+{
+    background-color: #FFD966;
+}
+
+#Catalog #Cart table[class="show"] tr[id="cartButton"] .Button input[type="button"]
+{
+    background-color: #94B286;
+}
+
+#Catalog #Cart table[class="show"] tr[id="cartButton"] .Button
+{
+    text-decoration: none;
+    color: white;
+}
+
+#Catalog #Cart table[class="show"] tr[id="cartButton"] input:hover
+{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#Catalog #Cart table[class="show"] tr[id="cartButton"] .Button input[type="button"]:hover
+{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#Catalog #itemTable
+{
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Catalog #itemTable #itemDescription
+{
+    font-family: Georgia, serif, "Microsoft Yahei";
+    font-size: 18px;
+    position: relative;
+    top: -60px;
+}
+
+#Catalog #itemTable tr[class="itemDetails"]
+{
+    height: 45px;
+}
+
+#Catalog #itemTable tr[class="itemDetails"] th, td
+{
+    text-align: left;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+#Catalog #itemTable tr[class="itemDetails"]:nth-child(odd)
+{
+    background-color: #D5E3CF;
+}
+
+#Catalog #itemTable tr[class="itemDetails"]:nth-child(even)
+{
+    background-color: #EBF1E9;
+}
+
+#Catalog #itemTable tr[id="lastTr"]
+{
+    height: 80px;
+    text-align: center;
+}
+
+#Catalog #itemTable tr[id="lastTr"] .Button
+{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    color: #94B286;
+}
+
+#Catalog #itemTable tr[id="lastTr"] .Button p
+{
+    text-align: center;
+    transition: all 0.2s linear;
+}
+
+#Catalog #itemTable tr[id="lastTr"] .Button:hover
+{
+    color: #E5E67F;
+    font-size: 21px;
+    transition: all 0.2s linear;
+}
+
+#Catalog #MyList
+{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#Catalog #MyList p
+{
+    text-align: center;
+    font-size: 18px;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    line-height: 45px;
+}
+
+#Catalog #MyList ul
+{
+    list-style: none;
+    background-color: #DBDBDB;
+}
+
+#Catalog #MyList ul li
+{
+    text-align: center;
+    vertical-align: center;
+    height: 45px;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 45px;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    border: white 1px solid;
+}
+
+#Catalog #MyList ul li span
+{
+    font-weight: normal;
+    font-size: 16px;
+    position: relative;
+    top: -2px;
+}
+
+#Catalog #MyList ul a
+{
+    text-decoration: none;
+    color: black;
+}
+
+#Catalog #MyList ul li:hover
+{
+    background-color: #626262;
+    color: white;
+    cursor: pointer;
+}
+
+#Catalog #orderForm
+{
+    line-height: 35px;
+    position: relative;
+    top: -22px;
+}
+
+#Catalog #orderForm table
+{
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Catalog #orderForm table tr
+{
+    height: 35px;
+}
+
+#Catalog #orderForm table th
+{
+    width: 200px;
+    text-align: right;
+    font-weight: normal;
+}
+
+#Catalog #orderForm table th[colspan="2"]
+{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#Catalog #orderForm table td[colspan="2"]
+{
+    text-align: center;
+}
+
+#Catalog #orderForm input[type="text"]
+{
+    width: 300px;
+    background-color: #EDEDED;
+    color: #A6A6A6;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
+}
+
+#Catalog #orderForm p
+{
+    text-align: center;
+}
+
+#Catalog #orderForm td select
+{
+    width: 150px;
+    background-color: #EDEDED;
+    color: #A6A6A6;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
+}
+
+#Catalog #orderForm p input[type="submit"]
+{
+    width: 450px;
+    height: 30px;
+    background-color: #AACC9A;
+    color: white;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+}
+
+#Catalog #orderForm p input[type="submit"]:hover
+{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#userAddresses
+{
+    width: 350px;
+    text-align: center;
+    vertical-align: center;
+    line-height: 35px;
+    position: absolute;
+    top: 0;
+    left: 80px;
+}
+
+#userAddresses h3
+{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+}
+
+#userAddresses .address
+{
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    background-color: #EDEDED;
+    border-radius: 5px;
+    border: none;
+}
+
+#userAddresses .address:hover
+{
+    cursor: pointer;
+    background-color: #E0E0E0;
+}
+
+#userAddresses .address #chooseButton
+{
+    height: 30px;
+    width: 80px;
+    background-color: #AACC9A;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+}
+
+#userAddresses .address #deleteButton
+{
+    height: 30px;
+    width: 80px;
+    background-color: #AFABAB;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+}
+
+#userAddresses .address #setMainButton
+{
+    height: 30px;
+    width: 80px;
+    background-color: #F5D886;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+}
+
+#userAddresses .address #deleteButton:hover, #userAddresses .address #chooseButton:hover,
+#userAddresses .address #setMainButton:hover
+{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#userAddresses .info
+{
+    position: absolute;
+    background-color: #EBF1E9;
+    z-index: 100;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    display: none; /* 默认不显示 */
+    /*width: 180px;*/
+    width: 0;
+    height: 0;
+    transform-origin: top left;
+}
+
+#userAddresses .info .Auto
+{
+    list-style: none;
+    height: 20px;
+    line-height: 20px;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 8px;
+    margin-top: 3px;
+    border-bottom: 1px solid #666;
+    color: #005e21;
+    cursor: pointer;
+    opacity: 0;
+}
+
+/* 显示动画：从左上角扩展 */
+@keyframes expand
+{
+    from
+    {
+        width: 0;
+        height: 0;
+    }
+    to
+    {
+        width: 260px; /* 最终宽度 */
+        height: auto; /* 最终高度 */
+    }
+}
+
+/* 隐藏动画：回缩到左上角 */
+@keyframes collapse
+{
+    from
+    {
+        width: 260px;
+        height: auto;
+    }
+    to
+    {
+        width: 0;
+        height: 0;
+    }
+}
+
+#Catalog #confirmOrderTips
+{
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    top: -15px;
+}
+
+#Catalog #confirmOrderForm
+{
+    line-height: 35px;
+    position: relative;
+    top: -40px;
+}
+
+#Catalog #confirmOrderForm table
+{
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Catalog #confirmOrderForm table #successInfo
+{
+    background-color: white;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+}
+
+#Catalog #confirmOrderForm table #successInfo p
+{
+    position: relative;
+    top: 6px;
+}
+
+#Catalog #confirmOrderForm table tr
+{
+    height: 35px;
+}
+
+#Catalog #confirmOrderForm table th
+{
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#Catalog #confirmOrderForm table th[colspan="4"]
+{
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #AACC9A;
+    color: white;
+}
+
+#Catalog #confirmOrderForm table td[colspan="4"]
+{
+    text-align: center;
+}
+
+#Catalog #confirmOrderForm input[type="text"]
+{
+    width: 300px;
+    background-color: #EDEDED;
+    color: #A6A6A6;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
+}
+
+#Catalog #confirmOrderForm p
+{
+    text-align: center;
+}
+
+#Catalog #confirmOrderForm table a
+{
+    text-decoration: none;
+    font-weight: bold;
+    color: #94B286;
+}
+
+#Catalog #confirmOrderForm table a:hover
+{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#Catalog #confirmOrderForm p input[type="submit"]
+{
+    width: 450px;
+    height: 30px;
+    background-color: #AACC9A;
+    color: white;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+}
+
+#Catalog #confirmOrderForm p input[type="submit"]:hover
+{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#Catalog #confirmOrderForm table tr:nth-child(odd)
+{
+    background-color: #D5E3CF;
+}
+
+#Catalog #confirmOrderForm table tr:nth-child(even)
+{
+    background-color: #EBF1E9;
+}
+
+#Content #BackLink
+{
+    height: 40px;
+    width: 200px;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+    background-color: #F5D886;
+    border-radius: 8px;
+    position: absolute;
+    left: 17%;
+}
+
+#Content #BackLink:hover
+{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#Content #BackLink a
+{
+    text-decoration: none;
+    color: white;
+}
+
+#Welcome
+{
+    height: 40px;
+    width: 200px;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+    color: #F5D886;
+    position: absolute;
+    left: 17%;
+    top: -62px;
+}
+
+#bottomSpace
+{
+    height: 90px;
+    background-color: white;
+}

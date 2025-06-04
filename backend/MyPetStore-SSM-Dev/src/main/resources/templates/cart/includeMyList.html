@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<th:block th:if="${session.myList != null and not #lists.isEmpty(session.myList)}">
+    <h2>Pet Favorites</h2>
+    <p>Shop for more of your favorite pets here.</p>
+    <ul>
+        <li th:each="product : ${session.myList}">
+            <a th:href="@{catalog/viewProduct(productId=${product.productId})}">
+                <span th:text="${product.name}"></span>
+                <span th:text="'(' + ${product.productId} + ')'"></span>
+            </a>
+        </li>
+    </ul>
+</th:block>
+
+</body>
+</html>

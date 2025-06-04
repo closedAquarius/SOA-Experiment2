@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script th:inline="javascript">
+        // 获取后端传递的消息
+        var message = [[${addMsg}]];
+        // 判断消息是否存在
+        if (message) {
+            alert(message); // 弹出消息
+        }
+    </script>
+</head>
+<body>
+<header th:replace="common/top"></header>
+
+<div id="BackLink">
+    <a th:href="'/catalog/viewCategory?categoryId='+${product.categoryId}">
+        Return to <span th:text="${product.categoryId}"></span>
+    </a>
+</div>
+<script src="../js/adjustTopPosition.js"></script>
+
+<div id="Catalog">
+    <h2 th:text="${product.productName}"></h2>
+    <table class="show">
+        <tr>
+            <th>Item ID</th>
+            <th>Product ID</th>
+            <th>Description</th>
+            <th>List Price</th>
+            <th>Operation</th>
+        </tr>
+
+        <tr th:each="item:${product.itemList}">
+            <td>
+                <a th:href="'/catalog/viewItem?itemId='+${item.itemId}" th:text="${item.itemId}"></a>
+            </td>
+            <td th:text="${product.productId}"></td>
+            <td>
+                <span th:text="${item.attribute1}"></span>
+                <span th:text="${item.attribute2}"></span>
+                <span th:text="${item.attribute3}"></span>
+                <span th:text="${item.attribute4}"></span>
+                <span th:text="${item.attribute5}"></span>
+                <span th:text="${product.productName}"></span>
+            </td>
+            <td th:text="'$'+${#numbers.formatDecimal(item.listPrice,1,2)}"></td>
+            <td>
+                <a th:href="'/user/addItemToCart?workingItemId='+${item.itemId}" class="Button">Add to Cart</a>
+            </td>
+        </tr>
+
+        <tr id="productImage">
+            <td colspan="5">
+                <p th:utext="${product.description}"></p>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<footer th:replace="common/bottom"></footer>
+</body>
+</html>

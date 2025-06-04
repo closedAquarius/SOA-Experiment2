@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:replace="common/top"></header>
+
+<div id="Catalog">
+    <form th:action="@{/user/register}" method="post" id="registerForm">
+        <h3>User Information</h3>
+
+        <p th:if="${registerMsg != null}">
+            <font color="red" th:text="${registerMsg}"></font>
+        </p>
+
+        <table id="table1">
+            <tr>
+                <th>User ID:</th>
+                <td>
+                    <input type="text" name="username" id="username">
+                    <div id="usernameFeedback" class="feedback"></div>
+                </td>
+            </tr>
+            <tr>
+                <th>New password:</th>
+                <td>
+                    <input type="password" name="password" id="password">
+                    <div id="passwordFeedback" class="feedback"></div>
+                </td>
+            </tr>
+            <tr>
+                <th>Repeat password:</th>
+                <td>
+                    <input type="password" name="repeatPassword" id="repeatPassword">
+                    <div id="repeatPasswordFeedback" class="feedback"></div>
+                </td>
+            </tr>
+        </table>
+
+        <!-- 引入账户信息 -->
+        <div th:replace="account/includeAccount"></div>
+
+        <br>
+        <div id="save">
+            <p>
+                <input type="text" name="captchaInput" placeholder="Enter Captcha">
+                <img id="captchaImage" th:src="@{/user/getCaptcha}" alt="验证码" style="cursor: pointer;" onclick="reloadCaptcha()">
+                &nbsp;&nbsp;&nbsp;
+                <input type="submit" value="Save Account Information" id="saveButton">
+            </p>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    function reloadCaptcha() {
+        document.getElementById('captchaImage').src = '/getCaptcha?' + new Date().getTime();
+    }
+</script>
+
+
+<footer th:replace="common/bottom"></footer>
+</body>
+</html>

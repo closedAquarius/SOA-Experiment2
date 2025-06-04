@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:replace="common/top"></header>
+
+<div id="BackLink">
+    <a th:href="@{/catalog/returnMain}">Return to Main Menu</a>
+</div>
+
+<div id="Catalog">
+    <form th:action="@{/user/edit}" method="post" id="registerForm">
+        <h3>User Information</h3>
+
+        <!-- 显示错误消息 -->
+        <p th:if="${editMsg != null}">
+            <font color="red" th:text="${editMsg}"></font>
+        </p>
+
+        <table id="table1">
+            <tr>
+                <th>User ID:</th>
+                <td th:text="${loginAccount.username}" name="username"></td>
+            </tr>
+            <tr>
+                <th>New Password:</th>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <th>Repeat Password:</th>
+                <td><input type="password" name="repeatPassword"></td>
+            </tr>
+        </table>
+
+        <div th:replace="account/includeAccount"></div>
+
+        <br>
+        <div id="save">
+            <p>
+                <input type="submit" value="Save Account Information" id="saveButton">
+            </p>
+            <p>
+                <a th:href="@{/order/listOrder}">
+                    <input type="button" value="My Orders" id="listOrderButton">
+                </a>
+                &nbsp;
+                <a th:href="@{/user/viewJournal}">
+                    <input type="button" value="My Journals" id="listJournalsButton">
+                </a>
+            </p>
+        </div>
+    </form>
+</div>
+
+<footer th:replace="common/bottom"></footer>
+</body>
+</html>

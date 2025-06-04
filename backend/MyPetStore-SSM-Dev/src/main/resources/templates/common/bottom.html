@@ -1,0 +1,19 @@
+</div>
+
+<div id="Footer">
+    <div id="PoweredBy">
+        &nbsp;<a th:href="@{http://www.csu.edu.cn}">www.csu.edu.cn</a>
+    </div>
+
+    <div id="Banner">
+        <span th:if="${session.loginAccount != null and session.loginAccount.bannerOption}"
+              th:utext="${session.loginAccount.bannerName}">
+        </span>
+    </div>
+</div>
+
+<script src="../js/productAuto.js"></script>
+<script src="../js/adjustContentHeight.js"></script>
+
+</body>
+</html>

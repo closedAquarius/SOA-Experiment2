@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:replace="common/top"></header>
+
+<div id="BackLink">
+    <a th:href="'/catalog/viewProduct?productId='+${item.productId}">
+        Return to <span th:text="${item.productId}"></span>
+    </a>
+</div>
+<script src="../js/adjustTopPosition.js"></script>
+
+<div id="Catalog">
+
+    <table id="itemTable">
+        <tr id="firstTr">
+            <td th:utext="${product.description}"></td>
+        </tr>
+
+        <tr class="itemDetails">
+            <td><b th:text="${item.itemId}"></b></td>
+        </tr>
+
+        <tr class="itemDetails">
+            <td>
+                <b>
+                    <font size="4">
+                        <span th:text="${item.attribute1}"></span>
+                        <span th:text="${item.attribute2}"></span>
+                        <span th:text="${item.attribute3}"></span>
+                        <span th:text="${item.attribute4}"></span>
+                        <span th:text="${item.attribute5}"></span>
+                        <span th:text="${product.productName}"></span>
+                    </font>
+                </b>
+            </td>
+        </tr>
+
+        <tr class="itemDetails">
+            <td th:text="${product.productName}"></td>
+        </tr>
+
+        <tr class="itemDetails">
+            <td>
+                <span th:if="${item.quantity <= 0}">Back ordered.</span>
+                <span th:if="${item.quantity > 0}" th:text="${item.quantity + ' in stock.'}"></span>
+            </td>
+        </tr>
+
+        <tr class="itemDetails">
+            <td th:text="'$'+${#numbers.formatDecimal(item.listPrice,1,2)}">Item List Price</td>
+        </tr>
+
+        <tr id="lastTr">
+            <td>
+                <a th:href="'/user/addItemToCart?workingItemId='+${item.itemId}" class="Button">
+                    <p>Add to Cart</p>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<footer th:replace="common/bottom"></footer>
+</body>
+</html>

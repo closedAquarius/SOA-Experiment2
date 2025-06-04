@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:replace="common/top"></header>
+
+<div id="Welcome">
+    <div id="WelcomeContent">
+        <span><a id="WelcomeText"></a>
+            <span th:if="${session.loginAccount != null}" th:text="${session.loginAccount.firstName}"></span>
+        </span>
+    </div>
+</div>
+
+<div id="Main">
+    <div id="Sidebar">
+        <ul id="SidebarContent">
+            <li>
+                <a href="/catalog/viewCategory?categoryId=FISH">
+                    <p>Fish <span>Saltwater, Freshwater</span></p>
+                </a>
+            </li>
+            <li>
+                <a href="/catalog/viewCategory?categoryId=DOGS">
+                    <p>Dogs <span>Various Breeds</span></p>
+                </a>
+            </li>
+            <li>
+                <a href="/catalog/viewCategory?categoryId=CATS">
+                    <p>Cats <span>Various Breeds, Exotic Varieties</span></p>
+                </a>
+            </li>
+            <li>
+                <a href="/catalog/viewCategory?categoryId=REPTILES">
+                    <p>Reptiles <span>Lizards, Turtles, Snakes</span></p>
+                </a>
+            </li>
+            <li>
+                <a href="/catalog/viewCategory?categoryId=BIRDS">
+                    <p>Birds <span>Exotic Varieties</span></p>
+                </a>
+            </li>
+            <li id="suggestion">
+                <a th:href="@{/catalog/viewCategory?categoryId=${session.allCategories}}">
+                    <p style="text-align: center">
+                        Today's Suggestion<br>
+                        <span th:text="${session.allCategories + ' is gaining more attention'}"></span>
+                    </p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="MainImage">
+        <div id="MainImageContent">
+            <map name="estoremap">
+                <div class="info" id="info" style="display: none;"></div>
+                <area id="BirdsBig" alt="Birds" coords="72,2,280,250"
+                      href="/catalog/viewCategory?categoryId=BIRDS" shape="RECT" />
+                <area id="Fish" alt="Fish" coords="2,180,72,250"
+                      href="/catalog/viewCategory?categoryId=FISH" shape="RECT" />
+                <area id="Dogs" alt="Dogs" coords="60,250,130,320"
+                      href="/catalog/viewCategory?categoryId=DOGS" shape="RECT" />
+                <area id="Reptiles" alt="Reptiles" coords="140,270,210,340"
+                      href="/catalog/viewCategory?categoryId=REPTILES" shape="RECT" />
+                <area id="Cats" alt="Cats" coords="225,240,295,310"
+                      href="/catalog/viewCategory?categoryId=CATS" shape="RECT" />
+                <area id="BirdsSmall" alt="Birds" coords="280,180,350,250"
+                      href="/catalog/viewCategory?categoryId=BIRDS" shape="RECT" />
+            </map>
+            <img height="355" src="/images/splash.gif" align="middle"
+                 usemap="#estoremap" width="350" />
+        </div>
+    </div>
+
+    <div id="Separator">&nbsp;</div>
+</div>
+
+<script src="../js/getDetails.js"></script>
+
+<footer th:replace="common/bottom"></footer>
+</body>
+</html>

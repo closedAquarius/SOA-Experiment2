@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:replace="common/top"></header>
+
+<div id="BackLink">
+    <a th:href="@{/catalog/returnMain}">Return to Main Menu</a>
+</div>
+
+<script src="../js/adjustTopPosition.js"></script>
+
+<div id="Catalog">
+    <h2>My Journals</h2>
+    <table class="show">
+        <tr>
+            <th>Operation</th>
+            <th>Date</th>
+        </tr>
+
+        <tr th:each="journal : ${journals}">
+            <td>
+                <font th:style="'color:' + ${journal.color}" th:utext="${journal.description}"></font>
+            </td>
+            <td>
+                <font th:style="'color:' + ${journal.color}" th:text="${journal.date}"></font>
+            </td>
+        </tr>
+    </table>
+
+    <div id="Separator">&nbsp;</div>
+</div>
+
+<footer th:replace="common/bottom"></footer>
+</body>
+</html>

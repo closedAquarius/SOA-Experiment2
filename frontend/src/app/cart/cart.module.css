@@ -1,0 +1,232 @@
+.BackLink
+{
+    margin-left: 40px;
+    margin-top: 20px;
+    height: 40px;
+    width: 200px;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+    background-color: #F5D886;
+    color: white;
+    border-radius: 8px;
+}
+
+.title
+{
+    text-align: center;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.empty
+{
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.show
+{
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.show tr
+{
+    height: 45px;
+}
+
+.show th, .show td
+{
+    text-align: center;
+    padding-left: 25px;
+    padding-right: 25px;
+    border: 2px solid white;
+}
+
+.show thead
+{
+    background-color: #AACC9A;
+    color: white;
+    font-weight: bold;
+}
+
+.show tbody tr:nth-child(odd)
+{
+    background-color: #D5E3CF;
+}
+
+.show tbody tr:nth-child(even)
+{
+    background-color: #EBF1E9;
+}
+
+.show tfoot
+{
+    background-color: #AACC9A;
+}
+
+.show a
+{
+    text-decoration: none;
+    color: #94B286;
+    font-weight: bold;
+}
+
+.show a:hover
+{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.show tr input[type="number"]
+{
+    width: 150px;
+    height: 25px;
+    background-color: white;
+    padding-left: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.removeButton
+{
+    font-weight: bold;
+    color: #94B286;
+    text-decoration: none;
+}
+
+.removeButton:hover
+{
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.cartButton
+{
+    background-color: white;
+    height: 80px;
+    text-align: center;
+}
+
+.cartButton button, .Button button
+{
+    width: 300px;
+    height: 45px;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.cartButton .updateButton
+{
+    background-color: #FFD966;
+}
+
+.cartButton .Button
+{
+    background-color: #94B286;
+}
+
+.Button
+{
+    text-decoration: none;
+    color: white;
+}
+
+#cartButton button:hover
+{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.Button:hover
+{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.MyList p
+{
+    text-align: center;
+    font-size: 18px;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    line-height: 45px;
+}
+
+.MyList
+{
+    padding-left: 35%;
+    padding-right: 35%;
+    margin-bottom: 20px;
+}
+
+.MyList .title
+{
+    text-align: center;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.MyList ul
+{
+    list-style: none;
+    background-color: #DBDBDB;
+}
+
+.MyList ul li
+{
+    text-align: center;
+    vertical-align: center;
+    height: 45px;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 45px;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    border: white 1px solid;
+}
+
+.MyList ul li span
+{
+    font-weight: normal;
+    font-size: 16px;
+    position: relative;
+    top: -2px;
+}
+
+.MyList ul a
+{
+    text-decoration: none;
+    color: black;
+}
+
+.MyList ul li:hover
+{
+    background-color: #626262;
+    color: white;
+    cursor: pointer;
+}
+
+.MyList ul li .favItemName
+{
+    font-weight: bold;
+}

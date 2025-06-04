@@ -1,0 +1,32 @@
+#Footer
+{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: #333333;
+    height: 74px;
+}
+
+#Footer #Banner
+{
+    position: absolute;
+    left: 50%;
+    top: 5px;
+    transform: translateX(-50%);
+}
+
+#Footer #PoweredBy
+{
+    line-height: 74px;
+    font-family: Georgia, serif, "Microsoft Yahei";
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    right: 10%;
+}
+
+#Footer #PoweredBy a
+{
+    text-decoration: none;
+    color: white;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:replace="common/top"></header>
+
+<div id="Catalog">
+    <form th:action="@{/order/sendReturnRequest(orderId=${orderId})}" method="post" enctype="multipart/form-data" id="signOnForm">
+        <p id="signOnTitle">Please Enter Your Reason For Return</p>
+        <div id="formContent">
+            <p>
+                <span>Reason</span><br>
+                <select name="reason">
+                    <option>Quality Issues</option>
+                    <option>Inconsistent Description</option>
+                    <option>Shipping Error</option>
+                    <option>Don't Want It</option>
+                </select>
+                <br><br>
+
+                <span>Description:</span><br>
+                <textarea name="description" placeholder="Enter Description"></textarea>
+                <br><br>
+
+                <span>Upload Image:</span><br><br>
+                <input type="file" name="image" accept="image/*" placeholder="Update Image">
+            </p><br><br><br>
+
+            <input type="submit" value="Submit" id="submit">
+        </div>
+    </form>
+</div>

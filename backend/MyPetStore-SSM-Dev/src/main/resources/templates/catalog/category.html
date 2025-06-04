@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:replace="common/top"></header>
+
+<div id="BackLink">
+    <a href="/catalog/returnMain">Return to Main Menu</a>
+</div>
+<script src="../js/adjustTopPosition.js"></script>
+
+<div id="Catalog">
+
+    <h2 th:text="${category.categoryName}"></h2>
+    <table class="show">
+        <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product : ${category.productList}">
+            <td>
+                <a th:href="@{/catalog/viewProduct?productId=}+${product.productId}" th:text="${product.productId}"></a>
+            </td>
+            <td th:text="${product.name}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- 动态背景图片 -->
+<img th:if="${category.categoryName == 'Fish'}" th:src="@{../images/fishBackground.png}" th:alt="Fish" class="background"/>
+<img th:if="${category.categoryName == 'Dogs'}" th:src="@{../images/dogBackground.png}" th:alt="Dogs" class="background"/>
+<img th:if="${category.categoryName == 'Cats'}" th:src="@{../images/catBackground.png}" th:alt="Cats" class="background"/>
+<img th:if="${category.categoryName == 'Birds'}" th:src="@{../images/birdBackground.png}" th:alt="Birds" class="background"/>
+<img th:if="${category.categoryName == 'Reptiles'}" th:src="@{../images/reptileBackground.png}" th:alt="Reptiles" class="background"/>
+
+<footer th:replace="common/bottom"></footer>
+</body>
+</html>

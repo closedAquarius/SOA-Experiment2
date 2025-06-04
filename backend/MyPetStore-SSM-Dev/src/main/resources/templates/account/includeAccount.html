@@ -1,0 +1,106 @@
+<h3>Account Information</h3>
+<table id="table2">
+    <tr>
+        <th>First name:</th>
+        <td>
+            <input type="text" name="firstName"
+                   th:value="${loginAccount != null and loginAccount.firstName != null} ? ${loginAccount.firstName} : ''">
+        </td>
+        <th>Last name:</th>
+        <td>
+            <input type="text" name="lastName"
+                   th:value="${loginAccount != null and loginAccount.lastName != null} ? ${loginAccount.lastName} : ''">
+        </td>
+
+    </tr>
+    <tr>
+        <th>Email:</th>
+        <td>
+            <input type="text" size="40" name="email" id="email"
+                   th:value="${loginAccount != null and loginAccount.email != null} ? ${loginAccount.email} : ''">
+            <div id="emailFeedback" class="feedback"></div>
+        </td>
+        <th>Phone:</th>
+        <td>
+            <input type="text" name="phone"
+                   th:value="${loginAccount != null and session.loginAccount.phone != null} ? ${loginAccount.phone} : ''">
+        </td>
+    </tr>
+    <tr>
+        <th>Address 1:</th>
+        <td>
+            <input type="text" size="40" name="address1"
+                   th:value="${loginAccount != null and loginAccount.address1 != null} ? ${loginAccount.address1} : ''">
+        </td>
+
+        <th>Address 2:</th>
+        <td>
+            <input type="text" size="40" name="address2"
+                   th:value="${loginAccount != null and loginAccount.address2 != null} ? ${loginAccount.address2} : ''">
+        </td>
+    </tr>
+    <tr>
+        <th>City:</th>
+        <td>
+            <input type="text" name="city"
+                   th:value="${loginAccount != null and loginAccount.city != null} ? ${loginAccount.city} : ''">
+        </td>
+
+        <th>State:</th>
+        <td>
+            <input type="text" size="4" name="state"
+                   th:value="${loginAccount != null and loginAccount.state != null} ? ${loginAccount.state} : ''">
+        </td>
+    </tr>
+    <tr>
+        <th>Zip:</th>
+        <td>
+            <input type="text" size="10" name="zip"
+                   th:value="${loginAccount != null and loginAccount.zip != null} ? ${loginAccount.zip} : ''">
+        </td>
+
+        <th>Country:</th>
+        <td>
+            <input type="text" size="15" name="country"
+                   th:value="${loginAccount != null and loginAccount.country != null} ? ${loginAccount.country} : ''">
+        </td>
+    </tr>
+</table>
+
+<h3>Profile Information</h3>
+<table id="table3">
+    <tr>
+        <th>Language Preference:</th>
+        <td>
+            <select name="languagePreference">
+                <option th:each="lang : ${languages}"
+                        th:value="${lang}"
+                        th:text="${lang}"
+                        th:selected="${loginAccount != null and loginAccount.languagePreference != null and loginAccount.languagePreference == lang}">
+                </option>
+            </select>
+        </td>
+        <th>Enable MyList</th>
+        <td>
+            <input type="checkbox" name="listOption" value="1" th:checked="${true}">
+        </td>
+    </tr>
+    <tr>
+        <th>Favourite Category:</th>
+        <td>
+            <select name="favouriteCategoryId">
+                <option th:each="cate : ${categories}"
+                        th:value="${cate}"
+                        th:text="${cate}"
+                        th:selected="${loginAccount != null and loginAccount.favouriteCategoryId != null and loginAccount.favouriteCategoryId == cate}">
+                </option>
+            </select>
+        </td>
+        <th>Enable MyBanner</th>
+        <td>
+            <input type="checkbox" name="bannerOption" value="1" th:checked="${true}">
+        </td>
+    </tr>
+</table>
+
+<script src="../js/examination.js"></script>

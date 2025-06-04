@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:replace="common/top"></header>
+
+<div id="userAddresses">
+    <h3>Historical Addresses</h3>
+    <div class="info" id="AutoAddress" style="display: none;"></div>
+
+    <div th:each="address : ${addresses}" id="address" class="address" th:attr="data-addrid=${address.addressId}">
+        <h4 id="adressId" th:text="${address.addressId}"></h4>
+        <span>
+                <p th:text="${address.address1 + ' ' + address.address2}"></p>
+                <a class="Button" id="choose" th:attr="data-addrid=${address.addressId}">
+                    <input type="button" id="chooseButton" value="Choose">
+                </a>
+                &nbsp;&nbsp;&nbsp;
+                <a class="Button" id="setMain" th:attr="data-addrid=${address.addressId}">
+                    <input type="button" id="setMainButton" value="Set Main">
+                </a>
+                &nbsp;&nbsp;&nbsp;
+                <a class="Button" id="delete" th:attr="data-addrid=${address.addressId}">
+                    <input type="button" id="deleteButton" value="Delete">
+                </a>
+            </span>
+    </div>
+</div>
+
+<div id="Catalog">
+    <form th:action="@{/order/newOrder}" method="post" id="orderForm">
+        <input type="hidden" name="newOrderFormSubmitted" value="true">
+
+        <table>
+            <tr>
+                <th colspan="2">Payment Details</th>
+            </tr>
+            <tr>
+                <th>Card Type:</th>
+                <td>
+                    <select name="order.cardType">
+                        <option value="Visa">Visa</option>
+                        <option value="wechat">WeChat</option>
+                        <option value="alipay">Alipay</option>
+                        <option value="others">Others</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Card Number:</th>
+                <td>
+                    <input type="text" name="order.creditCard" th:value="${order?.creditCard ?: ''}">
+                </td>
+            </tr>
+            <tr>
+                <th>Expiry Date (MM/YYYY):</th>
+                <td>
+                    <input type="text" name="order.expiryDate" th:value="${order?.expiryDate ?: ''}">
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">Billing Address</th>
+            </tr>
+            <tr>
+                <th>First name:</th>
+                <td>
+                    <input type="text" id="firstname" name="order.billToFirstName" th:value="${session.loginAccount?.firstName ?: ''}">
+                </td>
+            </tr>
+            <tr>
+                <th>Last name:</th>
+                <td>
+                    <input type="text" id="lastname" name="order.billToLastName" th:value="${session.loginAccount?.lastName ?: ''}">
+                </td>
+            </tr>
+            <tr>
+                <th>Address 1:</th>
+                <td>
+                    <input type="text" size="40" id="address1" name="order.billAddress1" th:value="${session.loginAccount?.address1 ?: ''}">
+                </td>
+            </tr>
+            <tr>
+                <th>Address 2:</th>
+                <td>
+                    <input type="text" size="40" id="address2" name="order.billAddress2" th:value="${session.loginAccount?.address2 ?: ''}">
+                </td>
+            </tr>
+            <tr>
+                <th>City:</th>
+                <td>
+                    <input type="text" size="40" id="city" name="order.billCity" th:value="${session.loginAccount?.city ?: ''}">
+                </td>
+            </tr>
+            <tr>
+                <th>State:</th>
+                <td>
+                    <input type="text" size="40" id="state" name="order.billState" th:value="${session.loginAccount?.state ?: ''}">
+                </td>
+            </tr>
+            <tr>
+                <th>Zip:</th>
+                <td>
+                    <input type="text" size="40" id="zip" name="order.billZip" th:value="${session.loginAccount?.zip ?: ''}">
+                </td>
+            </tr>
+            <tr>
+                <th>Country:</th>
+                <td>
+                    <input type="text" size="40" id="country" name="order.billCountry" th:value="${session.loginAccount?.country ?: ''}">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="checkbox" name="shippingAddressRequired">
+                    Ship to different address...
+                </td>
+            </tr>
+        </table>
+
+        <p><input type="submit" name="newOrder" value="Continue"></p>
+    </form>
+</div>
+
+<script src="../js/updateAddress.js"></script>
+<footer th:replace="common/bottom"></footer>
+</body>
+</html>

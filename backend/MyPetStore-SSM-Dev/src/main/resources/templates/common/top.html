@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="StyleSheet" href="../css/header.css" type="text/css" media="screen" />
+    <link rel="StyleSheet" href="../css/common.css" type="text/css" media="screen" />
+    <link rel="StyleSheet" href="../css/footer.css" type="text/css" media="screen" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <title>MyPetStore</title>
+</head>
+
+<body>
+
+<div id="Header">
+    <!-- 导航菜单 -->
+    <div id="Menu">
+        <div id="Logo">
+            <div id="LogoContent">
+                <a th:href="@{/catalog/index}"><img src="../images/logo-topbar.gif" alt="Logo"></a>
+            </div>
+        </div>
+
+        <ul id="MenuContent">
+            <!-- 用户未登录时显示 "Sign In" -->
+            <li th:if="${session.loginAccount == null}">
+                <a th:href="@{/user/viewSignon}">Sign In</a>
+            </li>
+
+            <!-- 用户已登录时显示 "Sign Out" 和 "My Account" -->
+            <li th:if="${session.loginAccount != null}">
+                <a th:href="@{/user/signOff}">Sign Out</a>
+            </li>
+            <li th:if="${session.loginAccount != null}">
+                <a th:href="@{/user/viewEdit}">My Account</a>
+            </li>
+
+            <li id="last">
+                <a th:href="@{/help.html}">Need Help</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 搜索框 -->
+    <div id="Search">
+        <div id="SearchContent">
+            <form th:action="@{/catalog/search}" method="post">
+                <input type="text" name="keyword" size="14" id="keyword"
+                       placeholder="Enter Search Text" autocomplete="off">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="submit" value="Search" id="submit">
+            </form>
+            <div id="productAutoComplete">
+                <ul id="productAutoList">
+                    <!-- 动态填充搜索建议 -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 快捷链接 -->
+    <div id="QuickLinks">
+        <p>
+            <a href="/user/viewCart">
+                <img align="middle" name="img_cart" src="/images/cart.gif" alt="Cart" />
+            </a>
+            &nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;
+            <a href="/catalog/viewCategory?categoryId=FISH">Fish</a>
+            &nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;
+            <a href="/catalog/viewCategory?categoryId=DOGS">Dogs</a>
+            &nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;
+            <a href="/catalog/viewCategory?categoryId=REPTILES">Reptiles</a>
+            &nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;
+            <a href="/catalog/viewCategory?categoryId=CATS">Cats</a>
+            &nbsp;&nbsp;<span>|</span>&nbsp;&nbsp;
+            <a href="/catalog/viewCategory?categoryId=BIRDS">Birds</a>
+        </p>
+    </div>
+</div>
+<div id="Content">

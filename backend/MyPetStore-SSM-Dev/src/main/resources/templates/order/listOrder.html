@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:replace="common/top"></header>
+
+<div id="BackLink">
+    <a th:href="@{/catalog/returnMain}">Return to Main Menu</a>
+</div>
+<script src="../js/adjustTopPosition.js"></script>
+
+<div id="Catalog">
+    <h2>My Orders</h2>
+    <table class="show">
+        <tr>
+            <th>Order ID</th>
+            <th>Date</th>
+            <th>Total Price</th>
+            <th>Status</th>
+            <th>Operation</th>
+        </tr>
+
+        <tr th:each="order : ${orderList}">
+            <td>
+                <a th:href="@{/order/viewOrder(orderId=${order.orderId})}" th:text="${order.orderId}"></a>
+            </td>
+            <td th:text="${#dates.format(order.orderDate, 'yyyy/MM/dd HH:mm:ss')}"></td>
+            <td th:text="'$' + ${#numbers.formatDecimal(order.totalPrice, 1, 2)}"></td>
+            <td th:class="${order.status == 'P' ? 'status-p' :
+               order.status == 'W' ? 'status-w' :
+               order.status == 'N' ? 'status-n' :
+               order.status == 'F' ? 'status-f' : 'status-unknown'}">
+                <span th:switch="${order.status}">
+                    <span th:case="'P'">Awaiting Delivery</span>
+                    <span th:case="'W'">Returns Under Review</span>
+                    <span th:case="'N'">Order Refunded</span>
+                    <span th:case="'F'">Order Completed</span>
+                    <span th:case="*">Unknown Status</span>
+                </span>
+            </td>
+            <td th:if="${order.status == 'P'}">
+                <a th:href="@{/order/returnOrder(orderId=${order.orderId})}">Request A Return</a>
+            </td>
+            <td th:unless="${order.status == 'P'}"></td>
+        </tr>
+    </table>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        var msg = /*[[${msg}]]*/ '';
+        if (msg !== null && msg !== '') {
+            alert(msg);
+        }
+        /*]]>*/
+    </script>
+
+    <div id="Separator">&nbsp;</div>
+</div>
+
+
+<footer th:replace="common/bottom"></footer>
+</body>
+</html>

@@ -1,0 +1,93 @@
+body
+{
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+h2
+{
+    text-align: center;
+    font-family: Georgia, serif, "Microsoft Yahei";
+    font-size: 52px;
+    color: #9AAF93;
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+h2 span
+{
+    font-size: 37px;
+    color: black;
+}
+
+#description
+{
+    text-align: center;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    top: 36%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+#enterButton
+{
+    height: 58px;
+    width: 270px;
+    background-color: #FBA285;
+    color: white;
+    border-radius: 30px;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 23px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 58px;
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+#enterButton a
+{
+    text-decoration: none;
+    color: white;
+}
+
+#enterButton:hover
+{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#copyright
+{
+    text-align: center;
+    font-family: "Microsoft Yahei", "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 18px;
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+
+#beginningImage
+{
+    width: 90%;
+    position: absolute;
+    top: 20%;
+    left: 5%;
+    z-index: 1;
+}
