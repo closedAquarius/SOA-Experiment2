@@ -32,12 +32,17 @@ product-service/
 
 ### 1. 启动Nacos
 ```bash
-# Windows
-cd nacos/bin
-startup.cmd -m standalone
+# 进入bin目录
+cd nacos/bin #改为自己的目录
+.\startup.cmd -m standalone
+
+#启动时会提示输入三个密钥，依次输入：
+VGhpc0lzTXlDdXN0b21TZWNyZXRLZXkwMTIzNDU2Nzg5
+serverIdentity
+serverIdentityValue
 
 # 访问控制台
-http://localhost:8848/nacos
+http://localhost:8080
 用户名/密码: nacos/nacos
 ```
 
