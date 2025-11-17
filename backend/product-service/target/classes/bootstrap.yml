@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: product-service
+  cloud:
+    nacos:
+      # Nacos服务发现配置
+      discovery:
+        server-addr: localhost:8848
+        enabled: true
+      # Nacos配置中心（可选）
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+        enabled: false
+  profiles:
+    active: dev
