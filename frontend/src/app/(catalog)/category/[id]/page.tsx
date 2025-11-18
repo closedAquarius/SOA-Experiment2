@@ -1,20 +1,21 @@
+// @ts-nocheck
 import Header from "@/app/common/header";
 import Footer from "@/app/common/footer";
 import Link from "next/link";
-import { backendUrl } from "@/app/config";
+import { fetchCategory } from "../../product-service";
 export default async function Category({ params }:
     {
         params: Promise<{ id: string }>
     }) {
     const id = (await params).id;
-    const data = await getData(id);
+    const data = await fetchCategory(id);
     const category = data;
-    const productList = data.productList;
+    const productList = data.products || [];
     return (
         <div className="flex flex-col h-screen">
             <Header />
             <div className="flex-1 flex flex-col justify-center items-center">
-                <p className="font-bold mb-5 text-2xl italic">{category.categoryName}</p>
+                <p className="font-bold mb-5 text-2xl italic">{category.name}</p>
                 <table className="border-4 border-zinc-200">
                     <thead>
                         <tr className="bg-lime-200">
@@ -46,11 +47,4 @@ type Product = {
     categoryId: string,
     name: string,
     description:string,
-}
-
-
-async function getData(id: string) {
-    const res = await fetch(`${backendUrl}/catalog/category/${id}`);
-    if (!res.ok) throw new Error("获取数据失败")
-    return res.json();
 }

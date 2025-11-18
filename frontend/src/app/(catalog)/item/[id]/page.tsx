@@ -2,36 +2,37 @@
 import { handleAddToCart } from "@/app/actions";
 import Footer from "@/app/common/footer";
 import Header from "@/app/common/header";
-import { springBoot, backendUrl } from "@/app/config";
+import { backendUrl } from "@/app/config";
 import { parseDescription } from "@/app/utils";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
+import { ItemDTO, fetchItem } from "../../product-service";
 
 
 export default function Item() {
     const {id} = useParams();
-    const [productName, setProductName] = useState();
+    const [productName, setProductName] = useState<string>();
     const [itemId, setItemId] = useState('');
-    const [attribute1, setAttribute1] = useState();
-    const [quantity, setQuantity] = useState();
-    const [listPrice, setListPrice] = useState();
+    const [attribute1, setAttribute1] = useState<string>();
+    const [quantity, setQuantity] = useState<number>();
+    const [listPrice, setListPrice] = useState<number>();
     const [image, setImage] = useState('');
     const [text, setText] = useState('');
     useEffect(() => {
-      fetch(`${backendUrl}/catalog/item/${id}`)
-      .then(res => res.json())
-      .then(data => {
-        const {productName, itemId, attribute1, quantity, description, listPrice} = data;
-        setProductName(productName);
-        setItemId(itemId);
-        setAttribute1(attribute1);
-        setQuantity(quantity);
-        setListPrice(listPrice);
-        setImage(parseDescription(description).image);
-        setText(parseDescription(description).text);
-      })
-    }, []);
+      if (!id) return;
+      fetchItem(String(id))
+        .then((data: ItemDTO) => {
+          const {productName, itemId, attribute1, quantity, description, listPrice} = data;
+          setProductName(productName);
+          setItemId(itemId);
+          setAttribute1(attribute1);
+          setQuantity(quantity);
+          setListPrice(Number(listPrice));
+          setImage(parseDescription(description).image);
+          setText(parseDescription(description).text);
+        });
+    }, [id]);
     return (
         <div className="flex flex-col h-screen">
             <Toaster />

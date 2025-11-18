@@ -15,16 +15,29 @@ spring:
     gateway:
       routes:
         - id: product-service
-          uri: lb://product-service
+          uri: http://localhost:8081
           predicates:
             - Path=/product-service/**
           filters:
             - StripPrefix=1
+      discovery:
+        locator:
+          enabled: false
+          lower-case-service-id: true
 
 management:
   endpoints:
     web:
       exposure:
-        include: health,info,gateway
+        include: "*"
+  endpoint:
+    gateway:
+      enabled: true
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.netty: DEBUG
 
 
