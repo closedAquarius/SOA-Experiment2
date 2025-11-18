@@ -15,14 +15,20 @@ spring:
     gateway:
       routes:
         - id: product-service
-          uri: http://localhost:8081
+          uri: lb://product-service
           predicates:
             - Path=/product-service/**
           filters:
             - StripPrefix=1
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/api/v1/**
+          filters:
+            - PreserveHostHeader=true
       discovery:
         locator:
-          enabled: false
+          enabled: true
           lower-case-service-id: true
 
 management:

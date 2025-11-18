@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef } from "react";
-import { springBoot } from "../../config";
+import { backendUrl } from "../../config";
 import { useRouter } from "next/navigation";
 
 export default function Register() {
@@ -33,7 +33,7 @@ export default function Register() {
             window.alert("两次密码不一致");
             return;
         }
-        const resp = await fetch(`${springBoot}/api/v1/account`, {
+        const resp = await fetch(`${backendUrl}/api/v1/account`, {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
