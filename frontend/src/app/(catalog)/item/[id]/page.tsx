@@ -23,14 +23,18 @@ export default function Item() {
       if (!id) return;
       fetchItem(String(id))
         .then((data: ItemDTO) => {
+          console.log('后端返回的完整数据:', data); // 调试日志
           const {productName, itemId, attribute1, quantity, description, listPrice} = data;
+          console.log('description字段:', description); // 调试日志
           setProductName(productName);
           setItemId(itemId);
           setAttribute1(attribute1);
           setQuantity(quantity);
           setListPrice(Number(listPrice));
-          setImage(parseDescription(description).image);
-          setText(parseDescription(description).text);
+          const parsed = parseDescription(description);
+          console.log('解析后的结果:', parsed); // 调试日志
+          setImage(parsed.image);
+          setText(parsed.text);
         });
     }, [id]);
     return (
@@ -39,7 +43,7 @@ export default function Item() {
             <Header></Header>
             <div className="flex-1 flex flex-col items-center justify-center">
                 <ul className="border-5 border-rose-400 rounded-lg p-6 bg-orange-200">
-                    <li><img src={`${backendUrl}`+ image} alt="商品图片" width="60"/></li>
+                    <li>{image ? <img src={image} alt="商品图片" width="60"/> : <div>无图片</div>}</li>
                     <li className="italic text-rose-500 underline">{text}</li>
                     <li>{attribute1}</li>
                     <li>{productName}</li>

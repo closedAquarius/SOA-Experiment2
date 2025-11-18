@@ -54,7 +54,38 @@ const Product = () => {
                                 <td className="underline border-2 p-2 bg-yellow-50"><Link href={`/item/${item.itemId}`}>{item.itemId}</Link></td>
                                 <td className="border-2 p-2 bg-yellow-50">{item.listPrice}</td>
                                 <td className="border-2 p-2 bg-yellow-50">{item.attribute1}</td>
-                                <td className="border-2 p-2 bg-yellow-50"><img src={ `${backendUrl}` + image} alt="图片" width="60"/></td>
+                                <td className="border-2 p-2 bg-yellow-50">
+                                    {image ? (
+                                        <div className="relative">
+                                            {/* 先用普通img标签测试 */}
+                                            <img
+                                                src={image}
+                                                alt="商品图片"
+                                                width={60}
+                                                height={60}
+                                                className="object-cover rounded"
+                                                onError={(e) => {
+                                                    console.error('图片加载失败:', image); // 调试日志
+                                                    e.currentTarget.style.display = 'none';
+                                                    const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                                                    if (fallback) {
+                                                        fallback.style.display = 'flex';
+                                                    }
+                                                }}
+                                                onLoad={() => {
+                                                    console.log('图片加载成功:', image); // 调试日志
+                                                }}
+                                            />
+                                            <div className="w-15 h-15 bg-gray-200 rounded flex items-center justify-center" style={{display: 'none'}}>
+                                                <span className="text-gray-500 text-xs">加载失败</span>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <div className="w-15 h-15 bg-gray-200 rounded flex items-center justify-center">
+                                            <span className="text-gray-500 text-xs">No Image</span>
+                                        </div>
+                                    )}
+                                </td>
                                 <td className="border-2 p-2 bg-yellow-50">{text}</td>
                                 <td className="border-2 p-2 bg-yellow-50">
                                     <button className="bg-black text-white p-2 rounded-lg font-bold cursor-pointer hover:bg-stone-600"
