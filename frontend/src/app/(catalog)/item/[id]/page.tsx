@@ -2,43 +2,48 @@
 import { handleAddToCart } from "@/app/actions";
 import Footer from "@/app/common/footer";
 import Header from "@/app/common/header";
-import { springBoot, backendUrl } from "@/app/config";
+import { backendUrl } from "@/app/config";
 import { parseDescription } from "@/app/utils";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
+import { ItemDTO, fetchItem } from "../../product-service";
 
 
 export default function Item() {
     const {id} = useParams();
-    const [productName, setProductName] = useState();
+    const [productName, setProductName] = useState<string>();
     const [itemId, setItemId] = useState('');
-    const [attribute1, setAttribute1] = useState();
-    const [quantity, setQuantity] = useState();
-    const [listPrice, setListPrice] = useState();
+    const [attribute1, setAttribute1] = useState<string>();
+    const [quantity, setQuantity] = useState<number>();
+    const [listPrice, setListPrice] = useState<number>();
     const [image, setImage] = useState('');
     const [text, setText] = useState('');
     useEffect(() => {
-      fetch(`${backendUrl}/catalog/item/${id}`)
-      .then(res => res.json())
-      .then(data => {
-        const {productName, itemId, attribute1, quantity, description, listPrice} = data;
-        setProductName(productName);
-        setItemId(itemId);
-        setAttribute1(attribute1);
-        setQuantity(quantity);
-        setListPrice(listPrice);
-        setImage(parseDescription(description).image);
-        setText(parseDescription(description).text);
-      })
-    }, []);
+      if (!id) return;
+      fetchItem(String(id))
+        .then((data: ItemDTO) => {
+          console.log('后端返回的完整数据:', data); // 调试日志
+          const {productName, itemId, attribute1, quantity, description, listPrice} = data;
+          console.log('description字段:', description); // 调试日志
+          setProductName(productName);
+          setItemId(itemId);
+          setAttribute1(attribute1);
+          setQuantity(quantity);
+          setListPrice(Number(listPrice));
+          const parsed = parseDescription(description);
+          console.log('解析后的结果:', parsed); // 调试日志
+          setImage(parsed.image);
+          setText(parsed.text);
+        });
+    }, [id]);
     return (
         <div className="flex flex-col h-screen">
             <Toaster />
             <Header></Header>
             <div className="flex-1 flex flex-col items-center justify-center">
                 <ul className="border-5 border-rose-400 rounded-lg p-6 bg-orange-200">
-                    <li><img src={`${backendUrl}`+ image} alt="商品图片" width="60"/></li>
+                    <li>{image ? <img src={image} alt="商品图片" width="60"/> : <div>无图片</div>}</li>
                     <li className="italic text-rose-500 underline">{text}</li>
                     <li>{attribute1}</li>
                     <li>{productName}</li>
