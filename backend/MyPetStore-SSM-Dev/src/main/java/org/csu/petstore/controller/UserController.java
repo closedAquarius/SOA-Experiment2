@@ -32,9 +32,8 @@ import java.util.*;
 import java.util.List;
 
 @RestController
-@Controller
 @RequestMapping("/api/v1")
-@SessionAttributes(value = {"loginAccount","captcha","cart","isAdd","languages","categories","myList"})
+//@SessionAttributes(value = {"loginAccount","captcha","cart","isAdd","languages","categories","myList"})
 public class UserController {
 
     private String msg;
@@ -53,6 +52,7 @@ public class UserController {
     public ResponseEntity<?> login(@RequestBody Signon signon) {
         if(userService.login(signon.getUsername(), signon.getPassword())) {
             String token = jwtUtil.generateToken(signon.getUsername());
+            System.out.println(token);
             return ResponseEntity.ok(token);
         }
 
@@ -144,6 +144,7 @@ public class UserController {
 
     @GetMapping("/account/me")
     public ResponseEntity<?> getUserInfo(@RequestHeader("Authorization") String authHeader) {
+        System.out.println(authHeader);
         String token = authHeader.substring(7);
         String username = jwtUtil.extractUsername(token);
         if (username == null) {
@@ -160,6 +161,7 @@ public class UserController {
 
     @GetMapping("/account/me/myOrders")
     public ResponseEntity<?> getMyOrders(@RequestHeader("Authorization") String authHeader) {
+        System.out.println(authHeader);
         String token = authHeader.substring(7);
         String username = jwtUtil.extractUsername(token);
         if (username == null) {

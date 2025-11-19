@@ -14,6 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class MyPetStoreSsmDevApplication {
 
     public static void main(String[] args) {
+        System.out.println(System.getProperty("user.dir"));
         SpringApplication.run(MyPetStoreSsmDevApplication.class, args);
     }
 
@@ -25,7 +26,8 @@ public class MyPetStoreSsmDevApplication {
                 registry.addMapping("/**")
                         .allowedOrigins("http://localhost:3000")
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                        .allowedHeaders("Origin", "X-Requested-With", "Content-Type", "Accept", "Authorization")
+                        .allowedHeaders("*")
+                        .exposedHeaders("Authorization")
                         .allowCredentials(true)
                         .maxAge(3600);
             }
@@ -35,10 +37,13 @@ public class MyPetStoreSsmDevApplication {
     //配置资源映射
     @Configuration
     public class WebConfig implements WebMvcConfigurer {
+
         @Override
         public void addResourceHandlers(ResourceHandlerRegistry registry) {
+            String path = System.getProperty("user.dir") + "\\backend\\MyPetStore-SSM-Dev\\upload\\images\\";
+            System.out.println(path);
             registry.addResourceHandler("/images/**")
-                    .addResourceLocations("file:" + "upload/images");
+                    .addResourceLocations("file:" + path);
         }
     }
 }
