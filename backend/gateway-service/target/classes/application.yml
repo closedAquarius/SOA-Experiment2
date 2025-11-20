@@ -11,11 +11,21 @@ spring:
         server-addr: 127.0.0.1:8848
         namespace: public
         group: DEFAULT_GROUP
+        # Gateway也需要注册到Nacos
+        enabled: true
+        ip: 127.0.0.1
+        port: 8090
+
+    loadbalancer:
+      ribbon:
+        enabled: false
+      health-check:
+        path: /actuator/health
 
     gateway:
       routes:
         - id: product-service
-          uri: lb://product-service
+          uri: http://127.0.0.1:8081
           predicates:
             - Path=/product-service/**
           filters:
@@ -45,5 +55,10 @@ logging:
     org.springframework.cloud.gateway: DEBUG
     org.springframework.web.reactive: DEBUG
     reactor.netty: DEBUG
+    org.springframework.cloud.loadbalancer: DEBUG
+    com.alibaba.nacos.client.naming: DEBUG
+    org.springframework.cloud.client.discovery: DEBUG
+    org.springframework.cloud.openfeign: DEBUG
+    com.alibaba.cloud.nacos: DEBUG
 
 

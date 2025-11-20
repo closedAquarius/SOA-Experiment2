@@ -25,6 +25,15 @@ spring:
         server-addr: localhost:8848
         namespace: public
         group: DEFAULT_GROUP
+        # 显式指定IP和端口
+        ip: 127.0.0.1
+        port: 8081
+        # 确保注册为临时实例
+        ephemeral: true
+        # 健康检查配置
+        heart-beat-interval: 5000
+        heart-beat-timeout: 15000
+        ip-delete-timeout: 30000
         metadata:
           version: 1.0.0
           region: cn-hangzhou
