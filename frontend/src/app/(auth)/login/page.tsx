@@ -21,6 +21,7 @@ export default function LogIn() {
         }
         const resp = await fetch(`${backendUrl}/user-service/api/v1/auth/login`, {
             method: "POST",
+            credentials: 'include',
             body: JSON.stringify(data),
             headers: {
                 "Content-Type": "application/json",
