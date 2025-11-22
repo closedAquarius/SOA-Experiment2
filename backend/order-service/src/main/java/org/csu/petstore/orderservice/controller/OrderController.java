@@ -195,4 +195,16 @@ public class OrderController {
         return CommonResponse.createForSuccess(order);
     }
 
+    @GetMapping("/orders/{orderId}")
+    @ResponseBody
+    public CommonResponse<Object> viewOrder(@PathVariable int orderId,
+                                            @RequestHeader("Authorization") String authHeader) {
+        String token = authHeader.substring(7);
+        String username = jwtUtil.extractUsername(token);
+        if (username == null) {
+            return CommonResponse.createForError("Please log in first");
+        }
+        OrderVO orderVO = orderService.getOrderWithLineItem(orderId);
+        return CommonResponse.createForSuccess(orderVO);
+    }
 }
