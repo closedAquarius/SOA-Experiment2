@@ -38,7 +38,7 @@ export async function GET(request: NextRequest) {
   const email = data.email;
   let token = '';
   try {
-    token = await fetch(`${backendUrl}/api/v1/auth/login`, {
+    token = await fetch(`${backendUrl}/user-service/api/v1/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -50,7 +50,7 @@ export async function GET(request: NextRequest) {
     }).then(res => res.text());
   } catch {
     console.log("the user is not in the database");
-    token = await fetch(`${backendUrl}/api/v1/account`, {
+    token = await fetch(`${backendUrl}/user-service/api/v1/account`, {
         method: "POST",
         body: JSON.stringify({
           "username" : name,

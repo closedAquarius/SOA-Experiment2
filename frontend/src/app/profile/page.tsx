@@ -57,7 +57,7 @@ useEffect(() => {
       return;
     }
 
-    fetch(`${backendUrl}/api/v1/account/me`, {
+    fetch(`${backendUrl}/user-service/api/v1/account/me`, {
       headers: {
         "Authorization": `Bearer ${token}`
       }

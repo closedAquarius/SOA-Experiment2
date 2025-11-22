@@ -33,7 +33,7 @@ export default function Register() {
             window.alert("两次密码不一致");
             return;
         }
-        const resp = await fetch(`${backendUrl}/api/v1/account`, {
+        const resp = await fetch(`${backendUrl}/user-service/api/v1/account`, {
             method: "POST",
             body: JSON.stringify(data),
             headers: {

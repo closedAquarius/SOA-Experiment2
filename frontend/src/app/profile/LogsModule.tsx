@@ -28,7 +28,7 @@ export default function LogsModule() {
           return;
         }
 
-        const response = await fetch(`${backendUrl}/api/v1/account/me/myJournal`, {
+        const response = await fetch(`${backendUrl}/user-service/api/v1/account/me/myJournal`, {
           method: "GET",
           headers: { 
             Authorization: `Bearer ${token}` 

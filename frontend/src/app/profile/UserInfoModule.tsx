@@ -91,7 +91,7 @@ export default function UserInfoModule({
         bannerOption: formData.bannerOpt
       };
   
-      const response = await fetch(`${backendUrl}/api/v1/account/me/info`, {
+      const response = await fetch(`${backendUrl}/user-service/api/v1/account/me/info`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -130,7 +130,7 @@ export default function UserInfoModule({
     }
   
     try {
-      const response = await fetch(`${backendUrl}/api/v1/auth/resetPsw`, {
+      const response = await fetch(`${backendUrl}/user-service/api/v1/auth/resetPsw`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

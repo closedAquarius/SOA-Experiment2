@@ -19,7 +19,7 @@ export default function LogIn() {
             username: username,
             password: password,
         }
-        const resp = await fetch(`${backendUrl}/api/v1/auth/login`, {
+        const resp = await fetch(`${backendUrl}/user-service/api/v1/auth/login`, {
             method: "POST",
             body: JSON.stringify(data),
             headers: {
