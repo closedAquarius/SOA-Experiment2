@@ -6,7 +6,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/mypetstore-ssm
     username: root
-    password: 238373
+    password: sh20051015
 
   cloud:
     nacos:

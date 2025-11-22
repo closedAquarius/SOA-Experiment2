@@ -8,7 +8,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: localhost:8848
         namespace: public
         group: DEFAULT_GROUP
         # Gateway也需要注册到Nacos
@@ -31,15 +31,11 @@ spring:
           filters:
             - StripPrefix=1
         - id: user-service
-          uri: lb://user-service
+          uri: http://127.0.0.1:8082
           predicates:
-            - Path=/api/v1/**
+            - Path=/user-service/**
           filters:
-            - PreserveHostHeader=true
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
+            - StripPrefix=1
 
 management:
   endpoints:
