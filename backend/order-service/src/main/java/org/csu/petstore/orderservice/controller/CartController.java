@@ -20,7 +20,6 @@ import java.util.*;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*")
 public class CartController {
     @Autowired
     CatalogService catalogService;
