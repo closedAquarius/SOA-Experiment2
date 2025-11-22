@@ -99,6 +99,36 @@ public class OrderController {
         return CommonResponse.createForSuccess(orders);
     }
 
+
+    // ---------------------------
+// 查看某个订单详情（含 LineItem）
+// ---------------------------
+    @GetMapping("/orders/{orderId}")
+    @ResponseBody
+    public CommonResponse<Object> getOrderDetail(@PathVariable int orderId,
+                                                 @RequestHeader("Authorization") String authHeader) {
+
+        String token = authHeader.substring(7);
+        String username = jwtUtil.extractUsername(token);
+        if (username == null) {
+            return CommonResponse.createForError("Please log in first");
+        }
+
+        Orders order = ordersMapper.selectById(orderId);
+        if (order == null) {
+            return CommonResponse.createForError("Order not found");
+        }
+
+        List<LineItem> items = lineItemMapper.selectByOrderId(orderId);
+
+        Map<String, Object> result = new HashMap<>();
+        result.put("order", order);
+        result.put("lineItems", items);
+
+        return CommonResponse.createForSuccess(result);
+    }
+
+
     // ---------------------------
 // 下单预览（不落库）
 // ---------------------------
