@@ -19,7 +19,7 @@ export default function Header() {
     }, []);
 
     const handleSignOut = async () => {
-      await fetch(`${backendUrl}/api/v1/auth/tokens/current`, {
+      await fetch(`${backendUrl}/user-service/api/v1/auth/tokens/current`, {
         method: "DELETE",
         headers: {
           "Authorization": `Bearer ${Cookies.get('token')}`,
